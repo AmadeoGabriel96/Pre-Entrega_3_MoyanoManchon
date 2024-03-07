@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de la búsqueda</title>
+</head>
+<body>
+    <h2>Buscar</h2>
+    <form action="{% url 'buscar' %}" method="get">
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" name="tipo">
+            <option value="alumno">Alumno</option>
+            <option value="profesor">Profesor</option>
+        </select>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if tipo == "alumno" %}
+        <h3>Resultados de la búsqueda de Alumnos</h3>
+        {% if alumnos %}
+            <ul>
+                {% for alumno in alumnos %}
+                    <li>{{ alumno.nombre }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No se encontraron alumnos.</p>
+        {% endif %}
+    {% elif tipo == "profesor" %}
+        <h3>Resultados de la búsqueda de Profesores</h3>
+        {% if profesores %}
+            <ul>
+                {% for profesor in profesores %}
+                    <li>{{ profesor.nombre }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No se encontraron profesores.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
