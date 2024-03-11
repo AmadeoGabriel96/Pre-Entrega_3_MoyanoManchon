@@ -1,0 +1,27 @@
+{% extends "AppCoderPE3/padre.html" %}
+
+{% block titulo %}
+
+Bienvenidos a la academia
+
+{% endblock %}
+
+{% block parrafo %}
+
+<form action="AppCoderPE3/buscar_curso/" method="GET"> {% csrf_token %}
+
+    <p>
+        <input type="text" name="nombre">
+        <input type="submit" value="Buscar">
+    </p>
+
+</form>
+
+{% for curso in cursos %}
+
+    <p>Nombre: {{curso.nombre}}</p>
+
+{% endfor %}
+
+
+{% endblock %}
