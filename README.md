@@ -11,7 +11,7 @@
 Las urls funcionales de mi proyecto son: 
 
 AppCoderPE3/crear_curso/
-AppCoderPE3/crear_profesor
+AppCoderPE3/crear_profesor/
 AppCoderPE3/crear_alumno/
 
 
